@@ -18,8 +18,6 @@ List<Stack<char>> stacks = ToStacks(columns);
 
 MoveSingleCrates(actions, stacks);
 
-List<Queue<char>> queues = ToQueue(columns);
-
 MoveManyCrates(actions, ToStacks(columns));
 
 
@@ -177,21 +175,3 @@ static List<Stack<char>> ToStacks(List<char>[] allColumns)
     return stacks; 
 }
 
-static List<Queue<char>> ToQueue(List<char>[] allColumns)
-{
-    List<Queue<char>> queues = new List<Queue<char>>();
-
-    foreach (var column in allColumns)
-    {
-        Queue<char> queue = new Queue<char>();
-
-        foreach(var item in column)
-        {
-            queue.Enqueue(item);
-        }
-
-        queues.Add(queue);
-    }
-
-    return queues;
-}
